@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c2eoe5l4bn2nr"]
+
+[ext_resource type="Script" uid="uid://dltu56lx3mmwt" path="res://Scripts/enemy.gd" id="1_613su"]
+[ext_resource type="Texture2D" uid="uid://chcv102fak30g" path="res://Assets/kenney_pixelshmup/Ships/ship_0005.png" id="2_jcvw6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1rqp"]
+atlas = ExtResource("2_jcvw6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_613su"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1rqp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbcgk"]
+size = Vector2(27, 20)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1445541414]
+script = ExtResource("1_613su")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1005584875]
+rotation = 3.1415927
+sprite_frames = SubResource("SpriteFrames_613su")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=537899828]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2098213323]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_hbcgk")

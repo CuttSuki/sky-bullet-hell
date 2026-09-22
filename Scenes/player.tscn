@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://mqaf0sejc31a"]
+
+[ext_resource type="Script" uid="uid://d2ov46i1arrtg" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://dmh71ntxg77qo" path="res://Assets/kenney_pixelshmup/Ships/ship_0000.png" id="1_v0iea"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbcgk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnsp")
+}],
+"loop": 1,
+"name": &"PlayerPlane",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbcgk"]
+size = Vector2(32, 19)
+
+[node name="Player" type="CharacterBody2D" unique_id=62100894 node_paths=PackedStringArray("hurt_box")]
+script = ExtResource("1_cvnsp")
+hurt_box = NodePath("Hurtbox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=104832076]
+sprite_frames = SubResource("SpriteFrames_hbcgk")
+animation = &"PlayerPlane"
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1133187421]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1744627839]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_hbcgk")

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dqdik6018t5h"]
+
+[ext_resource type="Script" uid="uid://jv0xjecqdoun" path="res://Scripts/spawner.gd" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://mqaf0sejc31a" path="res://Scenes/player.tscn" id="1_jjgbg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbcgk"]
+size = Vector2(1164, 119)
+
+[node name="Main" type="Node2D" unique_id=46907754]
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1027306665 node_paths=PackedStringArray("leftmost_side", "rightmost_side")]
+script = ExtResource("1_bo1nx")
+leftmost_side = NodePath("../Leftmost")
+rightmost_side = NodePath("../Rightmost")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=900103943]
+position = Vector2(569, 383)
+scale = Vector2(0.9543946, 4.346377)
+zoom = Vector2(1, 1.2)
+
+[node name="SpawnArea" type="Area2D" parent="." unique_id=960207642]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea" unique_id=787621538]
+position = Vector2(572, 49.5)
+shape = SubResource("RectangleShape2D_hbcgk")
+
+[node name="Player" parent="." unique_id=62100894 instance=ExtResource("1_jjgbg")]
+position = Vector2(570, 389)
+scale = Vector2(2, 2)
+
+[node name="Leftmost" type="Marker2D" parent="." unique_id=1643954452]
+position = Vector2(7, 8)
+
+[node name="Rightmost" type="Marker2D" parent="." unique_id=73682019]
+position = Vector2(1153, 14)
