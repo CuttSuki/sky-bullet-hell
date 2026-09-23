@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bygahut4l3wc8"]
+
+[ext_resource type="Script" uid="uid://cc4ltkvit2kop" path="res://Scripts/bullet_pattern.gd" id="1_oqag3"]
+[ext_resource type="PackedScene" uid="uid://cf7f1gbvaydjs" path="res://Scenes/Bullets/bullet.tscn" id="2_npnpa"]
+
+[node name="BulletPattern" type="Node2D" unique_id=293320585]
+script = ExtResource("1_oqag3")
+bullet_path = ExtResource("2_npnpa")

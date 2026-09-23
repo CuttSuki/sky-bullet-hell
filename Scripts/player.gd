@@ -6,8 +6,9 @@ const SPEED: int = 200
 var direction: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
+	rotation_degrees = -90
 	hurt_box.body_entered.connect(_on_body_entered)
-
+	
 
 func _physics_process(_delta: float) -> void:
 	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -15,4 +16,5 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func _on_body_entered(body: Node2D):
-	pass
+	if body.is_in_group("enemy_bullet"):
+		body.queue_free()

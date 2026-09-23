@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://jv0xjecqdoun" path="res://Scripts/spawner.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://mqaf0sejc31a" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://bygahut4l3wc8" path="res://Scenes/BulletPatterns/bullet_pattern.tscn" id="3_8gbba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbcgk"]
 size = Vector2(1164, 119)
@@ -27,6 +28,10 @@ shape = SubResource("RectangleShape2D_hbcgk")
 [node name="Player" parent="." unique_id=62100894 instance=ExtResource("1_jjgbg")]
 position = Vector2(570, 389)
 scale = Vector2(2, 2)
+
+[node name="BulletPattern" parent="Player" unique_id=293320585 node_paths=PackedStringArray("parent") instance=ExtResource("3_8gbba")]
+parent = NodePath("..")
+cooldown = 0.1
 
 [node name="Leftmost" type="Marker2D" parent="." unique_id=1643954452]
 position = Vector2(7, 8)
