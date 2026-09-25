@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbcgk"]
-size = Vector2(32, 19)
+size = Vector2(4, 6)
 
 [node name="Player" type="CharacterBody2D" unique_id=62100894 node_paths=PackedStringArray("hurt_box")]
 script = ExtResource("1_cvnsp")
@@ -30,5 +30,4 @@ animation = &"PlayerPlane"
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1744627839]
-position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_hbcgk")

@@ -14,13 +14,10 @@ func _set_bullet():
 		bullet.add_to_group("enemy_bullet")
 	elif parent is Player:
 		bullet.add_to_group("player_bullet")
-	_fire_bullet(bullet)
-	
-func _fire_bullet(bullet: Bullet):
-	BulletContainer.add_child(bullet)
 	bullet.global_position = parent.global_position
 	bullet.direction = Vector2.RIGHT.rotated(parent.global_rotation)
 	bullet.rotation = bullet.direction.angle()
+	BulletContainer.add_child(bullet)
 
 func _physics_process(delta: float) -> void:
 	if not parent:

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c4i1nbmootc75"]
+
+[ext_resource type="Script" uid="uid://slo2hy3g64th" path="res://Scenes/BulletPatterns/bullet_pattern_shotgun.gd" id="1_mytpk"]
+[ext_resource type="PackedScene" uid="uid://cf7f1gbvaydjs" path="res://Scenes/Bullets/bullet.tscn" id="2_gfhav"]
+
+[node name="ShotgunBulletPattern" type="Node2D" unique_id=1922882878]
+script = ExtResource("1_mytpk")
+bullet_path = ExtResource("2_gfhav")
+metadata/_custom_type_script = "uid://cc4ltkvit2kop"

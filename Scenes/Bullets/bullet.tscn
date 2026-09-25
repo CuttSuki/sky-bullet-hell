@@ -9,6 +9,7 @@ size = Vector2(23, 9)
 [node name="Bullet" type="CharacterBody2D" unique_id=1866320969]
 collision_layer = 2
 script = ExtResource("1_qngn8")
+speed = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=727693937]
 texture = ExtResource("2_qngn8")
