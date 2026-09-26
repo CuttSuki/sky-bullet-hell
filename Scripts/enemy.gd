@@ -12,7 +12,6 @@ func _move():
 	velocity.y = speed
 	move_and_slide()
 	
-	
 func _take_damage(amount: int):
 	hp -= amount
 	

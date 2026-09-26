@@ -4,13 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://mqaf0sejc31a" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://udnpjhjg7nii" path="res://Scripts/main.gd" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bygahut4l3wc8" path="res://Scenes/BulletPatterns/bullet_pattern.tscn" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://bdu3cmi16l2ky" path="res://Scripts/hud.gd" id="5_kry3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbcgk"]
 size = Vector2(1164, 119)
 
-[node name="Main" type="Node2D" unique_id=46907754 node_paths=PackedStringArray("despawn_area")]
+[node name="Main" type="Node2D" unique_id=46907754 node_paths=PackedStringArray("despawn_area", "spawner")]
 script = ExtResource("1_jjvhh")
 despawn_area = NodePath("DespawnArea")
+spawner = NodePath("Spawner")
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1027306665 node_paths=PackedStringArray("leftmost_side", "rightmost_side")]
 script = ExtResource("1_bo1nx")
@@ -29,22 +31,27 @@ position = Vector2(0, 618)
 position = Vector2(572, 49.5)
 shape = SubResource("RectangleShape2D_hbcgk")
 
-[node name="Player" parent="." unique_id=62100894 instance=ExtResource("1_jjgbg")]
+[node name="Player" parent="." unique_id=62100894 node_paths=PackedStringArray("spawner") instance=ExtResource("1_jjgbg")]
 position = Vector2(570, 389)
 scale = Vector2(2, 2)
 max_hp = 100
+spawner = NodePath("../Spawner")
 
 [node name="BulletPattern" parent="Player" unique_id=293320585 node_paths=PackedStringArray("parent") instance=ExtResource("3_8gbba")]
 parent = NodePath("..")
 cooldown = 0.2
 
 [node name="Leftmost" type="Marker2D" parent="." unique_id=1643954452]
-position = Vector2(7, 8)
+position = Vector2(27, 8)
 
 [node name="Rightmost" type="Marker2D" parent="." unique_id=73682019]
-position = Vector2(1153, 14)
+position = Vector2(1120, 14)
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1585939451]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1585939451 node_paths=PackedStringArray("health_info", "score_info", "player")]
+script = ExtResource("5_kry3j")
+health_info = NodePath("VBoxContainer/Health")
+score_info = NodePath("VBoxContainer/Score")
+player = NodePath("../Player")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD" unique_id=1394326816]
 offset_right = 357.0

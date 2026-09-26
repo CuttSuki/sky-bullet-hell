@@ -1,7 +1,7 @@
 extends Node2D
 class_name Main
 @export var despawn_area: Area2D
-
+@export var spawner: Node2D
 
 func _ready() -> void:
 	despawn_area.body_entered.connect(_on_body_entered)
