@@ -10,7 +10,7 @@ const SPEED: int = 200
 var direction: Vector2 = Vector2.ZERO
 signal health_changed(health: int)
 signal score_updated (score: int)
-
+signal game_over
 func _ready() -> void:
 	current_hp = max_hp
 	health_changed.emit.call_deferred(current_hp)
@@ -28,12 +28,18 @@ func _physics_process(_delta: float) -> void:
 	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * SPEED * additional_speed
 	move_and_slide()
-
+	if current_hp < 0:
+		game_over.emit()
+		
 func _take_damage(amount: int):
 	current_hp -= amount
-	health_changed.emit(current_hp)
 	
 func _on_body_entered(body: Node2D):
+	if body.is_in_group("player_bullet"):
+		return
 	if body.is_in_group("enemy_bullet"):
 		_take_damage(body.attack)
-		body.queue_free()
+	if body is Item:
+		body.interact_item(self)
+	health_changed.emit(current_hp)
+	body.queue_free()

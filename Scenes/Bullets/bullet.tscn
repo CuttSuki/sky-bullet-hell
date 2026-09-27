@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cf7f1gbvaydjs"]
 
 [ext_resource type="Script" uid="uid://dlj4b2gv2mm4o" path="res://Scripts/bullet.gd" id="1_qngn8"]
-[ext_resource type="Texture2D" uid="uid://cgop573grvepg" path="res://Assets/kenney_pixelshmup/0d9ec45a647e33293fe80a886bbdb86d_Enemy%20Bullet-1.png.png" id="2_qngn8"]
+[ext_resource type="Texture2D" uid="uid://bsip8o8jglbri" path="res://Assets/Sprites - Lasers Bullets #1 [66]v2.5/Laser Sprites/14.png" id="2_qngn8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbcgk"]
 size = Vector2(23, 9)
@@ -12,6 +12,7 @@ script = ExtResource("1_qngn8")
 speed = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=727693937]
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_qngn8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=582703938]

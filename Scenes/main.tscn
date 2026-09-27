@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://jv0xjecqdoun" path="res://Scripts/spawner.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://mqaf0sejc31a" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://udnpjhjg7nii" path="res://Scripts/main.gd" id="1_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://daduprsugw5uw" path="res://Scenes/parallax.tscn" id="2_21xkr"]
 [ext_resource type="PackedScene" uid="uid://bygahut4l3wc8" path="res://Scenes/BulletPatterns/bullet_pattern.tscn" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://bdu3cmi16l2ky" path="res://Scripts/hud.gd" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://bdwgmispe0nwy" path="res://Scripts/item_spawner.gd" id="7_6bp64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbcgk"]
 size = Vector2(1164, 119)
@@ -13,6 +15,11 @@ size = Vector2(1164, 119)
 script = ExtResource("1_jjvhh")
 despawn_area = NodePath("DespawnArea")
 spawner = NodePath("Spawner")
+
+[node name="Parallax" parent="." unique_id=1746295835 instance=ExtResource("2_21xkr")]
+visible = false
+z_index = -4096
+position = Vector2(-8, 161)
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1027306665 node_paths=PackedStringArray("leftmost_side", "rightmost_side")]
 script = ExtResource("1_bo1nx")
@@ -66,3 +73,11 @@ text = "Score:"
 custom_minimum_size = Vector2(10, 30)
 layout_mode = 2
 text = "Hp:"
+
+[node name="ItemContainer" type="Node2D" parent="." unique_id=967175968]
+
+[node name="ItemSpawner" type="Node2D" parent="." unique_id=1144161167 node_paths=PackedStringArray("item_container", "leftmost_side", "rightmost_side")]
+script = ExtResource("7_6bp64")
+item_container = NodePath("../ItemContainer")
+leftmost_side = NodePath("../Leftmost")
+rightmost_side = NodePath("../Rightmost")

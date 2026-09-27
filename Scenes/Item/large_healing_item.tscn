@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bst62nw2f4iat"]
+
+[ext_resource type="Script" uid="uid://e0e425w0w8wi" path="res://Scripts/healing_item.gd" id="1_v4blx"]
+[ext_resource type="Texture2D" uid="uid://dokw010s5v6bb" path="res://Assets/magical-potions-items-tileset.png" id="2_rpf22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cojko"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4blx"]
+atlas = ExtResource("2_rpf22")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbcgk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4blx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LargeHealingItem" type="CharacterBody2D" unique_id=782139051]
+scale = Vector2(0.2, 0.2)
+collision_layer = 4
+script = ExtResource("1_v4blx")
+heal_amount = 70
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1255331450]
+shape = SubResource("RectangleShape2D_cojko")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=900861749]
+sprite_frames = SubResource("SpriteFrames_hbcgk")

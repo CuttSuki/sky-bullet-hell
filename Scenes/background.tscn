@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dq8ccpmjsake3"]
+
+[ext_resource type="Texture2D" uid="uid://bmnkptqv3equa" path="res://Assets/craftpix-net-245126-free-pixel-sky-with-parallax-clouds-for-2d-games/background 1/orig.png" id="1_sn1xx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pojwb"]
+atlas = ExtResource("1_sn1xx")
+region = Rect2(0, 0, 576, 324)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbcgk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pojwb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Background" type="AnimatedSprite2D" unique_id=1150950153]
+sprite_frames = SubResource("SpriteFrames_hbcgk")

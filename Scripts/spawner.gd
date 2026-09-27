@@ -17,12 +17,11 @@ var spawn_data: Dictionary = {
 		"step": 0.3,
 		"max": 100,
 		"max_count": 3,
-		"delay": 10
+		"delay": 8
 	}
 }
 
 func _ready() -> void:
-	
 	_set_spawn()
 	
 func _physics_process(delta: float) -> void:

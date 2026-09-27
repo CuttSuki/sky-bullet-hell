@@ -37,6 +37,8 @@ shape = SubResource("RectangleShape2D_hbcgk")
 
 [node name="ShotgunBulletPattern" type="Node2D" parent="." unique_id=608442963 node_paths=PackedStringArray("parent")]
 script = ExtResource("3_2jwc5")
+multi_cd = 0.3
 parent = NodePath("..")
 bullet_path = ExtResource("4_pxfen")
+cooldown = 2.0
 metadata/_custom_type_script = "uid://cc4ltkvit2kop"
