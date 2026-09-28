@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://c2eoe5l4bn2nr"]
 
 [ext_resource type="Script" uid="uid://dltu56lx3mmwt" path="res://Scripts/enemy.gd" id="1_dyd8j"]
-[ext_resource type="Texture2D" uid="uid://brc5l88cq8b3r" path="res://Assets/kenney_pixelshmup/towerDefense_tile271.png" id="2_nx1jl"]
+[ext_resource type="Texture2D" uid="uid://bbmilv4oms24b" path="res://Assets/kenney_pixelshmup/Ships/basic_enemy_red.png" id="2_dyd8j"]
 [ext_resource type="Script" uid="uid://cc4ltkvit2kop" path="res://Scripts/bullet_pattern.gd" id="3_2bcja"]
 [ext_resource type="PackedScene" uid="uid://cf7f1gbvaydjs" path="res://Scenes/Bullets/bullet.tscn" id="4_jc5cp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx1jl"]
+atlas = ExtResource("2_dyd8j")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_613su"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_nx1jl")
+"texture": SubResource("AtlasTexture_nx1jl")
 }],
 "loop": 1,
 "name": &"default",
@@ -26,7 +30,7 @@ speed = 30
 hurt_box = NodePath("Hurtbox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1005584875]
-scale = Vector2(0.3, 0.221)
+scale = Vector2(0.8, 0.589)
 sprite_frames = SubResource("SpriteFrames_613su")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=537899828]

@@ -21,7 +21,7 @@ animations = [{
 }]
 
 [node name="MediumHealingItem" type="CharacterBody2D" unique_id=782139051]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.5, 0.5)
 collision_layer = 4
 script = ExtResource("1_jyxpf")
 heal_amount = 50

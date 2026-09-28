@@ -11,18 +11,19 @@ config_version=5
 [application]
 
 config/name="sky-bullet-hell"
-run/main_scene="uid://dqdik6018t5h"
+run/main_scene="uid://c4ws54u4uu8m3"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 BulletContainer="*uid://biaypebcfwswu"
+AudioManager="*uid://b7axk1gcc8drs"
 
 [display]
 
+window/size/mode=2
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [physics]
 

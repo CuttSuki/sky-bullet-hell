@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cki6vittnbker"]
+
+[ext_resource type="Script" uid="uid://dlj4b2gv2mm4o" path="res://Scripts/bullet.gd" id="1_ggbv4"]
+[ext_resource type="Texture2D" uid="uid://cief47vgmpuse" path="res://Assets/Sprites - Lasers Bullets #1 [66]v2.5/Laser Sprites/18.png" id="2_ggbv4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbcgk"]
+size = Vector2(23, 9)
+
+[node name="Bullet" type="CharacterBody2D" unique_id=1866320969]
+collision_layer = 2
+script = ExtResource("1_ggbv4")
+attack = 30
+speed = 400
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=727693937]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ggbv4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=582703938]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_hbcgk")

@@ -3,7 +3,7 @@ class_name ShotgunBulletPattern
 @export var num_of_hits: int = 1
 @export var multi_cd: float = 0.5
 func _ready() -> void:
-	num_of_hits = randi() % 3
+	num_of_hits = max(randi() % 3, 1)
 	
 func _set_bullet():
 	var bullet_count := 10

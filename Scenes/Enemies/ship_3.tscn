@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cyr2ten7sxsqh"]
+
+[ext_resource type="Script" uid="uid://dltu56lx3mmwt" path="res://Scripts/enemy.gd" id="1_jd1cp"]
+[ext_resource type="Texture2D" uid="uid://carr4jqi7y6yf" path="res://Assets/kenney_pixelshmup/Ships/yellow_ship.png" id="2_jd1cp"]
+[ext_resource type="Script" uid="uid://c64qic8rd8hn0" path="res://Scripts/enemy_3_bullet_pattern.gd" id="3_jd1cp"]
+[ext_resource type="PackedScene" uid="uid://cki6vittnbker" path="res://Scenes/Bullets/bullet_2.tscn" id="4_jd1cp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2epq"]
+atlas = ExtResource("2_jd1cp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_613su"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2epq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbcgk"]
+size = Vector2(27, 28.666668)
+
+[node name="Enemy3" type="CharacterBody2D" unique_id=1445541414 node_paths=PackedStringArray("hurt_box")]
+scale = Vector2(2, 2)
+script = ExtResource("1_jd1cp")
+hp = 200
+speed = 30
+hurt_box = NodePath("Hurtbox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1005584875]
+scale = Vector2(0.8, 0.589)
+sprite_frames = SubResource("SpriteFrames_613su")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=537899828]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2098213323]
+shape = SubResource("RectangleShape2D_hbcgk")
+
+[node name="RapidFireBulletPattern" type="Node2D" parent="." unique_id=257227781 node_paths=PackedStringArray("parent", "aim_group")]
+script = ExtResource("3_jd1cp")
+num_of_hits = 5
+multi_cd = 0.2
+parent = NodePath("..")
+bullet_path = ExtResource("4_jd1cp")
+cooldown = 4.0
+aim_group = NodePath("../AimGroup")
+metadata/_custom_type_script = "uid://cc4ltkvit2kop"
+
+[node name="AimGroup" type="Node2D" parent="." unique_id=628360709]
+
+[node name="Marker2D" type="Marker2D" parent="AimGroup" unique_id=1696073129]
+position = Vector2(4.6666665, -6.666667)
+scale = Vector2(0.1, 0.1)
+
+[node name="Marker2D2" type="Marker2D" parent="AimGroup" unique_id=755536756]
+position = Vector2(4.666667, -4.666667)
+scale = Vector2(0.1, 0.1)
+
+[node name="Marker2D3" type="Marker2D" parent="AimGroup" unique_id=1894981244]
+position = Vector2(4.6666665, 4.666667)
+scale = Vector2(0.1, 0.1)
+
+[node name="Marker2D4" type="Marker2D" parent="AimGroup" unique_id=262940726]
+position = Vector2(4.666667, 6.666667)
+scale = Vector2(0.1, 0.1)

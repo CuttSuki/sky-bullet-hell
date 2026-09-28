@@ -3,21 +3,29 @@ class_name Spawner
 
 @export var leftmost_side: Marker2D 
 @export var rightmost_side: Marker2D
+@export var player: Player
 var time_elapsed: float
 var spawn_data: Dictionary = {
 	"ship_1": {
 		"base":100,
-		"step": -0.1,
+		"step": -0.5,
 		"min": 10,
-		"max_count": 5,
+		"max_count": 3,
 		"delay": 5
 	},
 	"ship_2": {
-		"base": 20,
-		"step": 0.3,
+		"base": 30,
+		"step": 0.5,
 		"max": 100,
 		"max_count": 3,
 		"delay": 8
+	},
+	"ship_3": {
+		"base": 20,
+		"step": 1,
+		"max": 100,
+		"max_count": 5,
+		"delay": 5
 	}
 }
 
@@ -38,7 +46,7 @@ func _set_spawn():
 			if can_spawn:
 				for i in range(randi() % ship_spawn_data.get("max_count", 1)):
 					var enemy_ship: Enemy = load("res://Scenes/Enemies/%s.tscn" % ship_name).instantiate()
-					enemy_ship.position.x = randf_range(leftmost_side.position.x, rightmost_side.position.x) * i
+					enemy_ship.position.x = randf_range(leftmost_side.position.x + player.position.x , rightmost_side.position.x - player.position.x)
 					enemy_ship.position.y = rightmost_side.position.y
 					add_child(enemy_ship)
 			)
