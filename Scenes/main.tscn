@@ -37,6 +37,7 @@ zoom = Vector2(1, 1.5)
 
 [node name="DespawnArea" type="Area2D" parent="." unique_id=1591753862]
 position = Vector2(0, 618)
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DespawnArea" unique_id=891417847]
 position = Vector2(572, 49.5)
@@ -45,7 +46,7 @@ shape = SubResource("RectangleShape2D_hbcgk")
 [node name="Player" parent="." unique_id=62100894 node_paths=PackedStringArray("spawner") instance=ExtResource("1_jjgbg")]
 position = Vector2(570, 389)
 scale = Vector2(2, 2)
-max_hp = 100
+max_hp = 9999999
 spawner = NodePath("../Spawner")
 
 [node name="BulletPattern" parent="Player" unique_id=293320585 node_paths=PackedStringArray("parent") instance=ExtResource("3_8gbba")]

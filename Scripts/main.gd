@@ -9,5 +9,5 @@ func _ready() -> void:
 	
 	
 func _on_body_entered(body: Node2D):
-	if body is Enemy:
+	if body is Enemy or body is Bullet:
 		body.queue_free()
